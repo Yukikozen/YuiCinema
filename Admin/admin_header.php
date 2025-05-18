@@ -34,7 +34,7 @@ if (isset($_GET["action"])) {
 <!doctype html>
 <html lang="en">
     <head>
-        <title>Online Movie Ticket Booking</title>
+        <title>Yuizen Cinema</title>
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -42,7 +42,7 @@ if (isset($_GET["action"])) {
         <style>
             
         </style>
-         <title>Admin Panel - Online Movie Ticket</title>
+         <title>Admin Panel - Yuizen Cinema</title>
 
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
@@ -56,7 +56,7 @@ if (isset($_GET["action"])) {
 
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" ></script>
-        
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <link rel="stylesheet" href="../css/admin.css">
 
@@ -66,7 +66,7 @@ if (isset($_GET["action"])) {
     <body>
 
         <nav class="navbar navbar-expand-md navbar-dark" style="background-color:maroon">
-            <a class="navbar-brand" href="dashboard.php"><img src="../images/png-transparent-movies-logo-the-film-television-logo.png" style="width: 60px;"/></a>
+            <a class="navbar-brand" href="dashboard.php"><img src="../images/2503508.png" style="width: 60px;"/></a>
                 <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
                     aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -74,7 +74,7 @@ if (isset($_GET["action"])) {
                 <div class="collapse navbar-collapse" id="collapsibleNavId">
                     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                         <li class="nav-item">
-                            <h5><a class="nav-link" href="dashboard.php">Admin Panel Online Movie Ticket Booking</a></h5>
+                            <h5><a class="nav-link" href="dashboard.php">Admin Panel - Yuizen Cinema</a></h5>
                         </li>
                         
                     </ul>
