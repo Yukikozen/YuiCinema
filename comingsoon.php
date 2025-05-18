@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Coming Soon</title>
+<!--        <title>Coming Soon</title>-->
     </head>
     <body>
         <?php
+         $pageTitle = "Coming Soon";
         include_once("header.php");
         include_once 'conn/config.php';
 

@@ -1,4 +1,5 @@
 <?php
+ $pageTitle = "All movies";
 include_once("header.php");
 include_once 'conn/config.php';
 

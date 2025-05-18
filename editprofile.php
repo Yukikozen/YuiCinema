@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Edit Profile</title>
+<!--        <title>Edit Profile</title>-->
         <style>
             /* styles.css */
             .accordion
@@ -77,6 +77,7 @@
         if (empty($_SESSION["username"])) {
             header("Location:index.php");
         } else {
+             $pageTitle = "Edit Profile";
             include_once("header.php");
         }
         ?>

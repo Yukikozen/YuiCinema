@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>FORGET PASSWORD</title>
+<!--        <title>FORGET PASSWORD</title>-->
         <!--<link rel="stylesheet" href="css/forgetpw_css.css">-->
         <?php
+         $pageTitle = "FORGET PASSWORD";
         include_once "header.php";
         ?>
 

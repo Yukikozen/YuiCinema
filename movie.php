@@ -1,8 +1,9 @@
 <?php
 session_start();
-include_once "header.php";
+//include_once "header.php";
 include_once 'conn/config.php';
 
+$pageTitle = "Yui Cinema"; // default page title
 if (isset($_POST['movie_id'])) {
     $movieId = $_POST['movie_id'];
 
@@ -17,6 +18,8 @@ if (isset($_POST['movie_id'])) {
 
     if ($result->num_rows > 0) {
         $movie = $result->fetch_assoc();
+        $pageTitle = htmlspecialchars($movie['name']) . " - Yui Cinema";
+      
 
         // Check if the user is logged in
         if (isset($_SESSION['username'])) {
@@ -135,11 +138,15 @@ if (isset($_POST['movie_id'])) {
     $movie = null;
     include("invalid.php");
 }
+
+// Include header after $pageTitle is set
+include_once "header.php";
 ?>
 
 <!DOCTYPE html>
 <html>
     <head>
+
         <style>
             .movie-details {
                 display: flex;

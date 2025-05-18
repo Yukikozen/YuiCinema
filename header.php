@@ -80,7 +80,10 @@ else {
 <!doctype html>
 <html lang="en">
     <head>
-        <title>Online Movie</title>
+        
+       
+        <title><?= isset($pageTitle) ? htmlspecialchars($pageTitle) : "Yui Cinema" ?></title>
+
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -335,13 +338,20 @@ else {
 
         <link rel="stylesheet" href="css/register.css">
 
+        
+         <script>
+//        // Function to set the browser tab title dynamically
+//        function setPageTitle(title) {
+//            document.title = title; // Set the title of the document
+//        }
+//    </script>
     </head>
 
 
     <body>
 
         <nav class="navbar navbar-expand-md navbar-dark" style="background-color:maroon">
-            <a class="navbar-brand" href="index.php"><img src="images/png-transparent-movies-logo-the-film-television-logo.png" style="width: 60px;"/></a>
+            <a class="navbar-brand" href="index.php"><img src="images/movielo.png" style="width: 60px;"/></a>
             <button id="navToggleButton" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavId">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -471,183 +481,7 @@ else {
             </div>
         </div>
 
-<!--     Login Modal 
-<div class="modal fade" id="modelId1" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header" style="background-color: maroon; color: white;">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form method="post" action="process_login.php">
-                    <div class="container" style="color: maroon;">
-                        <center>
-                            <h1>Login</h1>
-                        </center>
-                        <hr>
-                        <label for="logUsername"><b>Username</b></label>
-                        <input type="text" style="border-radius: 30px;" placeholder="Enter Username" name="log_user" id="logUsername" required>
 
-                        <label for="logPassword"><b>Password</b></label>
-                        <div class="input-group">
-                            <input type="password" style="border-radius: 30px;" placeholder="Enter Password" name="log_psw" id="logPassword" required>
-                            <i class="far fa-eye login__eye toggle-password" id="toggleLoginPassword" data-target="logPassword"></i>
-                        </div>
-                        <button type="submit" name="btn_login" class="btn" style="background-color: maroon; color: white;">Login</button>
-                    </div>
-                </form>
-                <hr>
-                <div class="text-center">  Add this div for text alignment 
-                    <a href="forget_pw.php">Forgot Password</a>
-                </div>
-            </div>
-            
-            
-        </div>
-    </div>
-</div>
-    
-    
-     OTP Modal 
-<div class="modal fade" id="otpModal" tabindex="-1" role="dialog" aria-labelledby="otpModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header" style="background-color: maroon; color: white;">
-                <h5 class="modal-title" id="otpModalLabel">Enter OTP</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form method="post" action="verify.php">
-                    <div class="container" style="color: maroon;">
-                        <img src="data:image/png;base64, <?=$encoded_qr_data;?>" alt="QR Code">
-                        <p>One-time password at time of generation; <?=$current_otp;?></p>
-                        <h2>Verify Code</h2>
-                        <label for="otpCode"> One-time password: </label>
-                        <input type="number" style="border-radius: 30px;" name="otpCode" id="otpCode" required />
-                        
-                        <label for="otpCode"><b>Enter OTP</b></label>
-                        <input type="text" style="border-radius: 30px;" placeholder="Enter OTP" name="otp_code" id="otpCode" required>
-                        <button type="submit" name="btn_verify_otp" class="btn" style="background-color: maroon; color: white;" onclick="verify_otp();">Verify OTP</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-     
-
-<!--     Login Modal 
-<div class="modal fade" id="modelId1" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header" style="background-color: maroon; color: white;">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form method="post" action="process_login.php">
-                    <div class="container" style="color: maroon;">
-                        <center>
-                            <h1>Login</h1>
-                        </center>
-                        <hr>
-                        <label for="logUsername"><b>Username</b></label>
-                        <input type="text" style="border-radius: 30px;" placeholder="Enter Username" name="log_user" id="logUsername" required>
-
-                        <label for="logPassword"><b>Password</b></label>
-                        <div class="input-group">
-                            <input type="password" style="border-radius: 30px;" placeholder="Enter Password" name="log_psw" id="logPassword" required>
-                            <i class="far fa-eye login__eye toggle-password" id="toggleLoginPassword" data-target="logPassword"></i>
-                        </div>
-                        <button type="submit" name="btn_login" class="btn" style="background-color: maroon; color: white;">Login</button>
-                    </div>
-                </form>
-                <hr>
-                <div class="text-center">  Add this div for text alignment 
-                    <a href="forget_pw.php">Forgot Password</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
- OTP Modal 
-<div class="modal fade" id="otpModal" tabindex="-1" role="dialog" aria-labelledby="otpModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header" style="background-color: maroon; color: white;">
-                <h5 class="modal-title" id="otpModalLabel">Enter OTP</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form method="post" action="process_login.php">
-                    <div class="container" style="color: maroon;">
-                        <img src="data:image/png;base64,<?php echo $_SESSION['encoded_qr_data']; ?>" alt="QR Code"> <br>
-One-time password at the time of generation: <?php echo $_SESSION['otp']; ?>
-
-                        <h2>Verify Code</h2>
-                        <label for="otpCode"> One-time password:</label>
-                        <input type="text" style="border-radius: 30px;" name="otpCode" id="otpCode" required />
-
-                        <button type="submit" name="btn_verify_otp" class="btn" style="background-color: maroon; color: white;">Verify OTP</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>-->
-
-<script>
-//$(document).ready(function() {
-//    // Check if the session variable 'show_otp_modal' is set to true
-//    <?php // if (isset($_SESSION['show_otp_modal']) && $_SESSION['show_otp_modal']) { ?>
-//        console.log("Triggering OTP modal");
-//        // Trigger the OTP modal
-//        $('#otpModal').modal('show');
-//        <?php
-        // Reset the session variable after showing the modal
-//        $_SESSION['show_otp_modal'] = false;
-//    } ?>//
-//});
-//</script>
-
-
-<?php
-//if (isset($_SESSION['show_otp_modal']) && $_SESSION['show_otp_modal']) {
-//    echo '<script>$(document).ready(function() { $("#otpModal").modal("show"); });</script>';
-//    // Reset the flag to avoid showing the modal again on page reload
-//    $_SESSION['show_otp_modal'] = false;
-//}
-?>
-<!-- Add this code to your HTML -->
-<!--<script>-->
-<!--$(document).ready(function() {-->
-    <!--// Check if the session variable 'show_otp_modal' is set to true and the URL parameter 'login' is 'verifying'-->
-    <?php // if (isset($_SESSION['show_otp_modal']) && $_SESSION['show_otp_modal'] && $_GET['login'] === 'verifying') { ?>
-<!--//        console.log("Triggering OTP modal");-->
-<!--//        // Trigger the OTP modal-->
-<!--//        $('#otpModal').modal('show');-->
-        <?php
-//        // Reset the session variable after showing the modal
-//        $_SESSION['show_otp_modal'] = false;
-//    } ?>
-<!--//});-->
-<!--</script>-->
-
-<?php
-//if (isset($_SESSION['show_otp_modal']) && $_SESSION['show_otp_modal'] && $_GET['login'] === 'verifying') {
-//    echo '<script>$(document).ready(function() { $("#otpModal").modal("show"); });</script>';
-//    // Reset the flag to avoid showing the modal again on page reload
-//    $_SESSION['show_otp_modal'] = false;
-//}
-?>
 
    <!-- Login Modal -->
 <div class="modal fade" id="modelId1" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
@@ -845,74 +679,157 @@ One-time password at the time of generation: <?php echo $_SESSION['otp']; ?>
         </script>
         
 <script>
+//    var countdownTimer;
+//    var sessionTimeout = <?php echo $_SESSION['timeout']; ?>; // Session timeout in seconds
+//    var logoutTimer; // Timer for automatic logout
+//    var sessionExpired = false;
+//
+//    function startCountdown() {
+//        countdownTimer = setTimeout(function () {
+//            if (!isVideoPlaying() && !sessionExpired) {
+//                $('#sessionTimeoutModal').modal('show');
+//
+//                logoutTimer = setTimeout(function () {
+//                    sessionExpired = true;
+//                    window.location.href = 'index.php?action=logout';
+//                }, 60000); // 60 seconds for automatic logout (adjust as needed)
+//            }
+//        }, sessionTimeout * 1000); // Convert seconds to milliseconds
+//    }
+//
+//    function resetCountdown() {
+//        clearTimeout(countdownTimer);
+//        clearTimeout(logoutTimer);
+//        startCountdown();
+//    }
+//
+//    function initSessionTimeout() {
+//        startCountdown();
+//        document.addEventListener('mousemove', resetCountdown);
+//        document.addEventListener('keypress', resetCountdown);
+//    }
+//
+//    document.addEventListener('DOMContentLoaded', initSessionTimeout);
+//
+//    $('#sessionTimeoutModal').on('show.bs.modal', function () {
+//        clearTimeout(countdownTimer);
+//        clearTimeout(logoutTimer);
+//    });
+//
+//    $('#sessionTimeoutModal').on('hidden.bs.modal', function () {
+//        if (!sessionExpired) {
+//            startCountdown();
+//        }
+//    });
+//
+//    $('#continueSessionBtn').on('click', function () {
+//        $('#sessionTimeoutModal').modal('hide');
+//        resetCountdown();
+//    });
+//
+//    $('#logoutBtn').on('click', function () {
+//        clearTimeout(countdownTimer);
+//        clearTimeout(logoutTimer);
+//        sessionExpired = true;
+//        window.location.href = 'index.php?action=logout';
+//    });
+//
+//    function onVideoPlay() {
+//        clearTimeout(countdownTimer);
+//        clearTimeout(logoutTimer);
+//    }
+//
+//    function onVideoPause() {
+//        if (!sessionExpired) {
+//            startCountdown();
+//        }
+//    }
+//
+//    function isVideoPlaying() {
+//        var video = document.getElementById('movieVideo');
+//        return !!(video && !video.paused && !video.ended && video.currentTime > 0);
+//    }
+//    
+    
+    
     var countdownTimer;
-    var sessionTimeout = <?php echo $_SESSION['timeout']; ?>; // Session timeout in seconds
-    var logoutTimer; // Timer for automatic logout
-    var sessionExpired = false;
+var sessionTimeout = <?php echo $_SESSION['timeout']; ?>; // Session timeout in seconds
+var logoutTimer; // Timer for automatic logout
+var sessionExpired = false;
 
-    function startCountdown() {
-        countdownTimer = setTimeout(function () {
-            if (!isVideoPlaying() && !sessionExpired) {
-                $('#sessionTimeoutModal').modal('show');
+function startCountdown() {
+    countdownTimer = setTimeout(function () {
+        if (!isVideoPlaying() && !sessionExpired) {
+            $('#sessionTimeoutModal').modal('show');
 
-                logoutTimer = setTimeout(function () {
-                    sessionExpired = true;
-                    window.location.href = 'index.php?action=logout';
-                }, 60000); // 60 seconds for automatic logout (adjust as needed)
-            }
-        }, sessionTimeout * 1000); // Convert seconds to milliseconds
-    }
+            logoutTimer = setTimeout(function () {
+                sessionExpired = true;
+                window.location.href = 'index.php?action=logout';
+            }, 60000); // 60 seconds for automatic logout (adjust as needed)
+        }
+    }, sessionTimeout * 1000); // Convert seconds to milliseconds
+}
 
-    function resetCountdown() {
-        clearTimeout(countdownTimer);
-        clearTimeout(logoutTimer);
+function resetCountdown() {
+    clearTimeout(countdownTimer);
+    clearTimeout(logoutTimer);
+    startCountdown();
+}
+
+function initSessionTimeout() {
+    startCountdown();
+    document.addEventListener('mousemove', resetCountdown);
+    document.addEventListener('keypress', resetCountdown);
+}
+
+document.addEventListener('DOMContentLoaded', initSessionTimeout);
+
+$('#sessionTimeoutModal').on('show.bs.modal', function () {
+    clearTimeout(countdownTimer);
+    clearTimeout(logoutTimer);
+});
+
+$('#sessionTimeoutModal').on('hidden.bs.modal', function () {
+    if (!sessionExpired) {
         startCountdown();
     }
+});
 
-    function initSessionTimeout() {
+$('#continueSessionBtn').on('click', function () {
+    $('#sessionTimeoutModal').modal('hide');
+    resetCountdown();
+});
+
+$('#logoutBtn').on('click', function () {
+    clearTimeout(countdownTimer);
+    clearTimeout(logoutTimer);
+    sessionExpired = true;
+    window.location.href = 'index.php?action=logout';
+});
+
+function onVideoPlay() {
+    clearTimeout(countdownTimer);
+    clearTimeout(logoutTimer);
+}
+
+function onVideoPause() {
+    if (!sessionExpired) {
         startCountdown();
-        document.addEventListener('mousemove', resetCountdown);
-        document.addEventListener('keypress', resetCountdown);
     }
+}
 
-    document.addEventListener('DOMContentLoaded', initSessionTimeout);
+function isVideoPlaying() {
+    var video = document.getElementById('movieVideo');
+    return !!(video && !video.paused && !video.ended && video.currentTime > 0);
+}
 
-    $('#sessionTimeoutModal').on('show.bs.modal', function () {
-        clearTimeout(countdownTimer);
-        clearTimeout(logoutTimer);
-    });
-
-    $('#sessionTimeoutModal').on('hidden.bs.modal', function () {
-        if (!sessionExpired) {
-            startCountdown();
-        }
-    });
-
-    $('#continueSessionBtn').on('click', function () {
-        $('#sessionTimeoutModal').modal('hide');
-        resetCountdown();
-    });
-
-    $('#logoutBtn').on('click', function () {
-        clearTimeout(countdownTimer);
-        clearTimeout(logoutTimer);
-        sessionExpired = true;
-        window.location.href = 'index.php?action=logout';
-    });
-
-    function onVideoPlay() {
-        clearTimeout(countdownTimer);
-        clearTimeout(logoutTimer);
+// Additional function to show modal when the user is inactive
+function showSessionTimeoutModal() {
+    if (!isVideoPlaying() && !sessionExpired) {
+        $('#sessionTimeoutModal').modal('show');
     }
+}
 
-    function onVideoPause() {
-        if (!sessionExpired) {
-            startCountdown();
-        }
-    }
-
-    function isVideoPlaying() {
-        var video = document.getElementById('movieVideo');
-        return !!(video && !video.paused && !video.ended && video.currentTime > 0);
-    }
+// Set a timeout to show the modal after a certain period of user inactivity
+var inactiveTimeout = setTimeout(showSessionTimeoutModal, sessionTimeout * 1000);
 </script>

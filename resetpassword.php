@@ -1,4 +1,5 @@
 <?php
+ $pageTitle = "RESET PASSWORD";
 include_once 'header.php';
 $endtimereset = time();
 $success = false;
@@ -57,7 +58,7 @@ if (isset($_SESSION['username']) == true) {
 ?>
 
     <head>
-        <title>RESET PASSWORD</title>
+<!--        <title>RESET PASSWORD</title>-->
         <!--        <link href="css/proreset.css" rel="stylesheet">-->
 <!--    <script>
 function validate() {

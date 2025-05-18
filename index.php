@@ -22,11 +22,39 @@
     #otpModal {
         z-index: 10000; /* Higher than the overlay */
     }
+    
+    .movie-title{
+        justify-content: center;
+    }
+    
+    .carousel-item {
+    position: relative;
+    width: 100%;
+    height: 100%; /* Ensures the carousel item takes full height */
+}
+
+.carousel-item button {
+    width: 100%; /* Make the button fill the width of the carousel item */
+    height: 100%; /* Make the button fill the height of the carousel item */
+    padding: 0; /* Remove any default padding */
+    border: none; /* Remove default border */
+    background: none; /* Remove default background */
+    display: flex; /* Use flexbox to center content */
+    align-items: center; /* Center content vertically */
+    justify-content: center; /* Center content horizontally */
+}
+
+.carousel-item img {
+    width: 100%; /* Make the image fill the width of the button */
+    height: 100%; /* Make the image fill the height of the button */
+    object-fit: cover; /* Ensure the image covers the button area without distortion */
+}
 </style>
     </head>
     <body>
         <?php
         session_start();
+        $pageTitle = "Yui Cinema";
         include_once"header.php";
         include_once 'conn/config.php';
         ?>
@@ -43,14 +71,22 @@
     }
 
 
-    if (isset($_GET['login'])) {
-        if ($_GET['login'] === 'success') {
-            echo '<script> $(document).ready(function() { $("#loginSuccessModal").modal("show"); });</script>';
-        } elseif ($_GET['login'] === 'fail') {
-            echo '<script>$(document).ready(function() { $("#loginFailModal").modal("show"); });</script>';
-        }
+//    if (isset($_GET['login'])) {
+//        if ($_GET['login'] === 'success') {
+//            echo '<script> $(document).ready(function() { $("#loginSuccessModal").modal("show"); });</script>';
+//        } elseif ($_GET['login'] === 'fail') {
+//            echo '<script>$(document).ready(function() { $("#loginFailModal").modal("show"); });</script>';
+//        }
+//    }
+//   
+
+if (isset($_GET['login'])) {
+    if ($_GET['login'] === 'success') {
+        echo '<script> $(document).ready(function() { $("#loginSuccessModal").modal("show"); });</script>';
+    } elseif ($_GET['login'] === 'fail') {
+        echo '<script>$(document).ready(function() { $("#loginFailModal").modal("show"); });</script>';
     }
-   
+}
 
     if (isset($_GET['login'])) {
         if ($_GET['login'] === 'disabled') {
@@ -58,12 +94,15 @@
 
         }
     }
+    
+    
+    
 
     ?>
     
         <?php
         $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
-        $resultset = $conn->query("SELECT imgpath,alt FROM slider"); // take name and path from sql cinema_gallery
+        $resultset = $conn->query("SELECT imgpath,alt, movie.id as movie_id FROM slider JOIN movie on slider.movie_id = movie.id"); // take name and path from sql cinema_gallery
         $image_count = 0; // initalise count as 0
         $rows = mysqli_fetch_assoc($resultset); //fetch name and path from table
         ?>
@@ -151,7 +190,7 @@ if (isset($_GET['search_query'])) {
         while ($row = $result->fetch_assoc()) {
 //                            // Create a container for each movie result with a form
 //                            echo "<div class='col-md-3 movie-result'>";
-            echo "<div class='col-md-3'>";
+            echo "<div class='col-md-5'>";
 
             echo "<div class='movie-card'>";
 
@@ -192,58 +231,108 @@ if (isset($_GET['search_query'])) {
         </section>
 
 
+<!--<section style="min-height:450px;">
+    <div id="carouselId" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <?php
+            $image_count = 0;
+            while ($rows = $resultset->fetch_assoc()) {
+                $actives = ($image_count === 0) ? 'active' : '';
+                echo "<li data-target='#carouselId' data-slide-to='$image_count' class='$actives'></li>";
+                $image_count++;
+            }
+            ?>
+        </ol>
 
+        <div class="carousel-inner">
+            <?php
+            $image_count = 0;
+            $resultset->data_seek(0); // Reset the result pointer
+            while ($rows = $resultset->fetch_assoc()) {
+                $actives = ($image_count === 0) ? 'active' : '';
+                echo "<div class='carousel-item $actives'>";
+                echo "<img class='d-block w-100' src='" . $rows['imgpath'] . "' alt='" . $rows['alt'] . "'>";
+                echo "<div class='carousel-caption d-none d-md-block'>";
+                echo "<h5>" . $rows['alt'] . "</h5>";
+
+                // Button to redirect to the movie page
+                echo "<form action='movie.php' method='POST' style='position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);'>";
+                echo "<input type='hidden' name='movie_id' value='" . $rows['movie_id'] . "'>";
+                echo "<button type='submit' class='btn btn-primary'>View Details</button>";
+                echo "</form>";
+
+                echo "</div>";
+                echo "</div>";
+                $image_count++;
+            }
+            ?>
+        </div>
+
+        <a class="carousel-control-prev" href="#carouselId" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselId" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</section>-->
+        
+        
         <section style="min-height:450px;">
+    <div id="carouselId" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <?php
+            $image_count = 0;
+            while ($rows = $resultset->fetch_assoc()) {
+                $actives = ($image_count === 0) ? 'active' : '';
+                echo "<li data-target='#carouselId' data-slide-to='$image_count' class='$actives'></li>";
+                $image_count++;
+            }
+            ?>
+        </ol>
 
-            <div id="carouselId" class="carousel slide" data-ride="carousel"> 
-                <ol class="carousel-indicators">
-<?php
-foreach ($resultset as $rows) {
-    $actives = '';
-    if (!$image_count) {
-        $actives = 'active';
-        $image_count++;
-    }
-    ?>
-                        <li data-target="#carouselExampleIndicators" data-slide-to= "<?= $image_count; ?>" class="<?= $actives; ?>"></li>
-                        <?php $image_count++;
-                    }
-                    ?>
-                </ol>
+        <div class="carousel-inner">
+            <?php
+            $image_count = 0;
+            $resultset->data_seek(0); // Reset the result pointer
+            while ($rows = $resultset->fetch_assoc()) {
+                $actives = ($image_count === 0) ? 'active' : '';
+                echo "<div class='carousel-item $actives'>";
+                
+                // Create a form wrapped in a link tag
+                echo "<a href='movie.php' method='POST' class='d-block w-100' onclick='submitForm(" . $rows['movie_id'] . "); return false;'>";
+                echo "<img class='d-block w-100' src='" . $rows['imgpath'] . "' alt='" . $rows['alt'] . "'>";
+                echo "<div class='carousel-caption d-none d-md-block'>";
+                echo "<h5>" . $rows['alt'] . "</h5>";
+                echo "</div>";
+                echo "</a>";
+                
+                echo "<form id='movieForm' action='movie.php' method='POST' style='display: none;'>";
+                echo "<input type='hidden' name='movie_id' id='movie_id_input'>";
+                echo "</form>";
 
-                <div class="carousel-inner" role="listbox">
-<?php
-$image_count = 0; // set count to 0 
-foreach ($resultset as $rows) {
-    $actives = '';
-    if ($image_count == 0) {
-        $actives = 'active';
-    }
-    ?>
-                        <div class="carousel-item <?= $actives; ?>">
-                            <img class="d-block-img-fluid" src="<?= $rows['imgpath'] ?>" alt="<?= $rows['alt'] ?>"
-                                 style="width: 100%; max-height: 1000px; object-fit: cover;"> <!-- Adjust the height as needed -->
-                            <div class="carousel-caption">
-                                <h5><?= $rows['alt'] ?></h5>
-                            </div>
-                        </div>
-    <?php
-    $image_count++;
-}
-?>
-                </div>
+                echo "</div>";
+                $image_count++;
+            }
+            ?>
+        </div>
 
-                <a class="carousel-control-prev" href="#carouselId" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselId" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
+        <a class="carousel-control-prev" href="#carouselId" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselId" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</section>
 
-        </section>
+        
+        
+        
 
         <section style="min-height:450px;">             
             <div class="jumbotron">
@@ -284,6 +373,25 @@ include 'latest-fetcher.php';
     </div>
 </div>
         <!-- Fail Modal for Login -->
+<!--<div class="modal fade" id="loginFailModal" tabindex="-1" role="dialog" aria-labelledby="loginFailModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="loginFailModalLabel">Error</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Login failed. Please check your input.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>-->
+<!-- Fail Modal for Login -->
 <div class="modal fade" id="loginFailModal" tabindex="-1" role="dialog" aria-labelledby="loginFailModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -302,7 +410,6 @@ include 'latest-fetcher.php';
         </div>
     </div>
 </div>
-
         
         <!-- Success Modal for Registration -->
 <div class="modal fade" id="registerSuccessModal" tabindex="-1" role="dialog" aria-labelledby="registerSuccessModalLabel" aria-hidden="true">
@@ -423,7 +530,13 @@ include 'latest-fetcher.php';
 include_once("footer.php");
 ?>
     </body>
-
+<script>
+function submitForm(movieId) {
+    var form = document.getElementById('movieForm');
+    document.getElementById('movie_id_input').value = movieId;
+    form.submit();
+}
+</script>
 </html>
 
 

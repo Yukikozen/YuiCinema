@@ -2,7 +2,7 @@
 <html>
     <head>
 
-        <title>Contact Us</title>
+<!--        <title>Contact Us</title>-->
 
     </head>
     <body>
@@ -12,6 +12,7 @@
          * To change this template file, choose Tools | Templates
          * and open the template in the editor.
          */
+         $pageTitle = "Contact Us";
         include_once("header.php");
         include_once("conn/config.php");
         ?>

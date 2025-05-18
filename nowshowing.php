@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Now Showing</title>
+<!--        <title>Now Showing</title>-->
     </head>
     <body>
         <?php
+         $pageTitle = "Now Showing";
         include_once("header.php");
         include_once 'conn/config.php';
 

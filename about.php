@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>About Us</title>
+      
         <style>
             .view-all-link {
                 text-align: right; /* Align the "View All Movies" link to the right */
@@ -111,6 +111,7 @@
     <body>
         <?php
         session_start();
+        $pageTitle = "About Us";
         include_once"header.php";
         include_once 'conn/config.php';
         ?>

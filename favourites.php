@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Favourites</title>
+<!--    <title>Favourites</title>-->
     <style>
         /* Add your CSS styles here */
     </style>
@@ -9,6 +9,7 @@
 <body>
     <?php
     session_start();
+     $pageTitle = "Favourites <3";
     include_once "header.php";
     include_once 'conn/config.php';
 
