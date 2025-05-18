@@ -73,7 +73,7 @@ if (isset($_POST['btn_change'])) { //change password btn
                 Password: $newpwd<br>
                 ------------------------ <br>
                 Please click this link to log in to your PV account:
-                <a href='http://localhost/OnlineShow/index.php'>http://localhost/OnlineShow/index.php</a>";
+                <a href='http://localhost/YuiCinema/index.php'>http://YuiCinema/YuiCinema/index.php</a>";
 
                 $mail->Body = $msg;
                 if ($mail->Send()) {
