@@ -216,7 +216,7 @@ function saveCustomerToDB() {
                                     ------------------------ <br>
 
                                     Please click this link to activate your account:
-                                    <a href='http://localhost/OnlineShow/verify.php?Id=$Id&hash=$hash'>http://localhost/OnlineShow/verify.php?Id=$Id&hash=$hash</a>";
+                                    <a href='http://localhost/YuiCinema/verify.php?Id=$Id&hash=$hash'>http://localhost/YuiCinema/verify.php?Id=$Id&hash=$hash</a>";
 
                 $mail->Body = $msg;
                 if ($mail->Send()) {
