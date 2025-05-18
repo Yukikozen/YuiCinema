@@ -47,9 +47,9 @@
             'dev_requirement' => false,
         ),
         'pragmarx/google2fa' => array(
-            'pretty_version' => 'v8.0.1',
-            'version' => '8.0.1.0',
-            'reference' => '80c3d801b31fe165f8fe99ea085e0a37834e1be3',
+            'pretty_version' => 'v8.0.3',
+            'version' => '8.0.3.0',
+            'reference' => '6f8d87ebd5afbf7790bde1ffc7579c7c705e0fad',
             'type' => 'library',
             'install_path' => __DIR__ . '/../pragmarx/google2fa',
             'aliases' => array(),
