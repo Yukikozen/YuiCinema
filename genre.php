@@ -37,10 +37,11 @@ if (isset($_POST['genre_id'])) {
     <!-- You can add your styles here or uncomment your previous CSS -->
     <!--<style> ... your CSS ... </style>-->
 </head>
-<body>
 <?php 
 include_once("header.php"); 
 ?>
+<body>
+
 
 <div class='jumbotron' style='margin-top: 15px; padding-top: 30px; padding-bottom: 30px;'>
     <div class='row'>

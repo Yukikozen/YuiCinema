@@ -1,5 +1,18 @@
 <!DOCTYPE html>
 <html>
+       <?php
+        session_start();
+//include_once"header.php";
+        include_once 'conn/config.php';
+        ?>
+        <?php
+        if (empty($_SESSION["username"])) {
+            header("Location:index.php");
+        } else {
+             $pageTitle = "Edit Profile";
+            include_once("header.php");
+        }
+        ?>
     <head>
 <!--        <title>Edit Profile</title>-->
         <style>
@@ -68,19 +81,7 @@
         </style>
     </head>
     <body>
-        <?php
-        session_start();
-//include_once"header.php";
-        include_once 'conn/config.php';
-        ?>
-        <?php
-        if (empty($_SESSION["username"])) {
-            header("Location:index.php");
-        } else {
-             $pageTitle = "Edit Profile";
-            include_once("header.php");
-        }
-        ?>
+     
         <?php
 // Check if the edit info form is submitted
         if (isset($_POST['btn_edit_info'])) {

@@ -1,13 +1,18 @@
 <!DOCTYPE html>
+       <?php
+        session_start();
+         $pageTitle = "Coming Soon";
+        include_once("header.php");
+        include_once 'conn/config.php';
+        ?>
+
 <html>
     <head>
 <!--        <title>Coming Soon</title>-->
     </head>
     <body>
         <?php
-         $pageTitle = "Coming Soon";
-        include_once("header.php");
-        include_once 'conn/config.php';
+       
 
         $conn = mysqli_connect(DBHOST, DBUSER, DBPASS, DBNAME);
 

@@ -81,8 +81,12 @@ else {
 <html lang="en">
     <head>
         
-       
+ <!-- Optional: support PNG -->
+<link rel="icon" type="image/png" href="images/3461151.png?v=2">
+
         <title><?= isset($pageTitle) ? htmlspecialchars($pageTitle) : "Yui Cinema" ?></title>
+
+
 
         <!-- Required meta tags -->
         <meta charset="utf-8">
@@ -323,8 +327,6 @@ else {
 
         </style>
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-
-        <!--<link rel="icon" href="images/logo.png">-->
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <!-- Font Awesome Icons -->

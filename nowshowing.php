@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html>
+    <?php
+     $pageTitle = "Now Showing";
+        include_once("header.php");
+        include_once 'conn/config.php';
+    ?>
     <head>
 <!--        <title>Now Showing</title>-->
     </head>
     <body>
         <?php
-         $pageTitle = "Now Showing";
-        include_once("header.php");
-        include_once 'conn/config.php';
+//         $pageTitle = "Now Showing";
+//        include_once("header.php");
+//        include_once 'conn/config.php';
 
         $conn = mysqli_connect(DBHOST, DBUSER, DBPASS, DBNAME);
 

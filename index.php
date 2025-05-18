@@ -1,4 +1,11 @@
 <!DOCTYPE html>
+   <?php
+        session_start();
+        include_once 'conn/config.php';
+        $pageTitle = "Yui Cinema";
+        include_once"header.php";
+        
+        ?>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -52,12 +59,7 @@
 </style>
     </head>
     <body>
-        <?php
-        session_start();
-        $pageTitle = "Yui Cinema";
-        include_once"header.php";
-        include_once 'conn/config.php';
-        ?>
+     
 
         <?php
 

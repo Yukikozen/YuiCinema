@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html>
+    <?php
+    session_start();
+     $pageTitle = "Favourites <3";
+    include_once "header.php";
+    include_once 'conn/config.php';
+    ?>
+    
 <head>
+   
 <!--    <title>Favourites</title>-->
     <style>
         /* Add your CSS styles here */
@@ -8,10 +16,10 @@
 </head>
 <body>
     <?php
-    session_start();
-     $pageTitle = "Favourites <3";
-    include_once "header.php";
-    include_once 'conn/config.php';
+//    session_start();
+//     $pageTitle = "Favourites <3";
+//    include_once "header.php";
+//    include_once 'conn/config.php';
 
     if (!isset($_SESSION['cust_id'])) {
         // Redirect to the login page if the user is not logged in

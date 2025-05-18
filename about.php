@@ -1,4 +1,11 @@
 <!DOCTYPE html>
+       <?php
+        session_start();
+        $pageTitle = "About Us";
+        include_once"header.php";
+        include_once 'conn/config.php';
+        ?>
+
 <html>
     <head>
       
@@ -109,13 +116,7 @@
         </style>
     </head>
     <body>
-        <?php
-        session_start();
-        $pageTitle = "About Us";
-        include_once"header.php";
-        include_once 'conn/config.php';
-        ?>
-
+ 
 
         <div class="container">
             <h1>About Us</h1>
