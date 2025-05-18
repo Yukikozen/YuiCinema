@@ -35,6 +35,9 @@ if (isset($_GET["action"])) {
 <html lang="en">
     <head>
         <title>Yuizen Cinema</title>
+         <!-- Optional: support PNG -->
+ <!-- Optional: support PNG -->
+<link rel="icon" type="image/png" href="../images/3461151.png?v=2">
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
